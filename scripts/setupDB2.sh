@@ -16,7 +16,7 @@
 source variables.sh
 
 # set up search label to find db2 chart
-LABEL="chart=${DB2_CHART}-${DB2_CHART_VERSION}"
+LABEL="chart=${DB2_CHART}"
 if [ "$DB2_RELEASE_NAME" != "" ]; then
   LABEL="${LABEL},release=${DB2_RELEASE_NAME}"
 fi
@@ -25,6 +25,7 @@ fi
 if [ "$DB2_NAMESPACE" = "" ]; then
   echo "Retrieving DB2 namespace"
   DB2_NAMESPACE=$(kubectl get service -l ${LABEL} --all-namespaces -o jsonpath="{.items[0].metadata.namespace}")
+  echo   kubectl get service -l ${LABEL} --all-namespaces -o jsonpath="{.items[0].metadata.namespace}"
   echo "Retrieved DB2 namespace: $DB2_NAMESPACE"
 fi
 
@@ -32,6 +33,7 @@ fi
 if [ "$DB2_SERVICE_NAME" = "" ]; then
   echo "Retrieving DB2 service name"
   DB2_SERVICE_NAME=$(kubectl get service -l ${LABEL} -n ${DB2_NAMESPACE} -o jsonpath="{.items[0].metadata.name}")
+  echo kubectl get service -l ${LABEL} -n ${DB2_NAMESPACE} -o jsonpath="{.items[0].metadata.name}"
   echo "Retrieved DB2 service name: $DB2_SERVICE_NAME" 
 fi
 

@@ -5,7 +5,7 @@
 #######################
 
 # Kubernetes namespace where the stocktrader application is or will be installed.
-STOCKTRADER_NAMESPACE="stocktrader"
+STOCKTRADER_NAMESPACE="stock-trader"
 
 ###########################
 #  DB2-RELATED VARIABLES  #
@@ -24,7 +24,7 @@ DB2_RELEASE_NAME=""
 DB2_USER="db2inst1"
 
 # DB2 password.  The setup script attempts to find this value so set this only if the script is unable to do so.
-DB2_PASSWORD=""
+DB2_PASSWORD="ThisIsMyPassword"
 
 # DB2 service name.  The setup script attempts to find this value so set this only if the script is unable to do so.
 DB2_SERVICE_NAME=""
@@ -33,7 +33,7 @@ DB2_SERVICE_NAME=""
 DB2_PORT=50000
 
 # DB2 Kubernetes namespace.  The setup script attempts to find this value so set this only if the script is unable to do so.
-DB2_NAMESPACE=""
+DB2_NAMESPACE="stock-trader-data"
 
 # Database name that you created for the stocktrader application
 STOCKTRADER_DB="trader"
